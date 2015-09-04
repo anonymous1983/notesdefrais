@@ -1,0 +1,63 @@
+<div class="md-body-center">
+
+  <md-content class="md-form md-whiteframe-z2">
+    <md-toolbar class="md-tall" layout="row" layout-align="start end">
+      <h2 class="md-toolbar-tools">
+        <span>Add Bill</span>
+      </h2>
+    </md-toolbar>
+    <md-content layout-padding>
+      <form name="formBillAdd">
+
+        <div layout layout-sm="column">
+          <md-input-container flex>
+            <md-switch
+            ng-model="bill.obj.expenseReportReason"
+            aria-label="Dépense en île de France"
+            ng-true-value="1"
+            ng-false-value="0"
+            class="md-warn">
+              <label>Dépense en île de France</label>
+          </md-input-container>
+
+          <md-input-container flex>
+            <label>Type</label>
+            <md-select ng-model="bill.obj.expenseReportType">
+              <md-option ng-repeat="type in main.constantBillMotif" value="{{type.code}}">{{type.description}}</md-option>
+            </md-select>
+          </md-input-container>
+        </div>
+
+        <div layout layout-sm="column">
+          <md-input-container flex>
+            <label>Justification</label>
+            <textarea ng-model="bill.obj.expenseReportJustification" columns="1" md-maxlength="250"></textarea>
+          </md-input-container>
+        </div>
+
+        <div layout="row" layout-align="center">
+          <div layout="row" layout-align="start center">
+            <md-button
+            type="reset">Cancel
+            </md-button>
+          </div>
+          <div layout="row" layout-align="end center" flex>
+            <md-button
+            type="submit"
+            class="md-raised md-button md-default-theme"
+            ng-disabled="formSignIn.$invalid">Save Draft
+            </md-button>
+
+            <md-button
+            type="submit"
+            class="md-raised md-primary"
+            ng-disabled="formSignIn.$invalid">Post it
+            </md-button>
+          </div>
+
+        </div>
+      </form>
+    </md-content>
+  </md-content>
+
+</div>

@@ -1,0 +1,83 @@
+<div class="md-body-center">
+
+  <md-content class="md-form md-whiteframe-z2">
+    <md-toolbar class="md-tall" layout="row" layout-align="start end">
+      <h2 class="md-toolbar-tools">
+        <span>Add Expense</span>
+      </h2>
+      <h3 class="md-toolbar-tools" layout="row" layout-align="end center">
+        <span>#{{expense.obj.expenseId}}</span>
+      </h3>
+    </md-toolbar>
+    <md-content layout-padding>
+      <form name="formExpenseAdd">
+
+        <div layout layout-sm="column">
+          <md-input-container flex>
+            <label>Amount</label>
+            <input
+            type="number"
+            required
+            min="1"
+            max="9999"
+            ng-change="expense.getRatesBase()"
+            ng-model="expense.obj.expenseAmount">
+          </md-input-container>
+
+          <md-input-container flex>
+            <label>Currency</label>
+            <md-select
+            required
+            ng-change="expense.getRatesBase()"
+            ng-model="expense.obj.expenseCurrency">
+              <md-option
+              ng-repeat="currency in main.constantGlobalCurrency"
+              value="{{currency.label}}">{{currency.label}}
+              </md-option>
+            </md-select>
+          </md-input-container>
+
+          <md-input-container
+          flex
+          ng-if="expense.obj.expenseAmount && expense.obj.expenseCurrency && (expense.obj.expenseCurrency != 'EUR') ">
+            <label>Change Rate</label>
+            <input ng-model="expense.obj.expenseChangeRate">
+          </md-input-container>
+
+          <md-input-container
+          flex
+          ng-if="expense.obj.expenseAmount && expense.obj.expenseCurrency && (expense.obj.expenseCurrency != 'EUR') ">
+            <label>Amount Change €</label>
+            <input ng-model="expense.obj.expenseAmountConverted">
+          </md-input-container>
+
+        </div>
+
+        <div layout layout-sm="column">
+          <md-input-container flex>
+            <label>Justification</label>
+            <textarea ng-model="expense.obj.expenseReportType" columns="1" md-maxlength="250"></textarea>
+          </md-input-container>
+        </div>
+        <div layout="row" layout-align="end center">
+          <md-button
+          type="reset">Clear
+          </md-button>
+
+          <md-button
+          type="submit"
+          class="md-raised md-primary"
+          ng-disabled="formSignIn.$invalid">Save Draft
+          </md-button>
+
+          <md-button
+          type="submit"
+          class="md-raised md-primary"
+          ng-disabled="formSignIn.$invalid">Submit
+          </md-button>
+        </div>
+      </form>
+    </md-content>
+  </md-content>
+
+</div>
