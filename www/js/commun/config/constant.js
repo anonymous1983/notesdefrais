@@ -225,125 +225,247 @@
 
   angular.module(G.app.name)
     .constant('constantExpense', {
-      type: [
-        {
-          id: 1,
-          code: 'HOTL',
-          description: 'Hôtel',
-          icon: {
-            type: 'Font-Awesome',
-            value: 'fa fa-tag'
+      type: {
+        inIleDeFrance: [
+          {
+            id: 1,
+            code: 'HOTL',
+            description: 'Hôtel',
+            icon: {
+              type: 'Font-Awesome',
+              value: 'fa fa-tag'
+            }
+          },
+          {
+            id: 2,
+            code: 'CARB',
+            description: 'Carburant (Voiture Société)',
+            icon: {
+              type: 'Font-Awesome',
+              value: 'fa fa-tag'
+            }
+          },
+          {
+            id: 3,
+            code: 'TAXI',
+            description: 'Taxi',
+            icon: {
+              type: 'Font-Awesome',
+              value: 'fa fa-tag'
+            }
+          },
+          {
+            id: 4,
+            code: 'LOCV',
+            description: 'Location voiture',
+            icon: {
+              type: 'Font-Awesome',
+              value: 'fa fa-tag'
+            }
+          },
+          {
+            id: 5,
+            code: 'AVIO',
+            description: 'Avion',
+            icon: {
+              type: 'Font-Awesome',
+              value: 'fa fa-tag'
+            }
+          },
+          {
+            id: 6,
+            code: 'VISA',
+            description: 'Frais de Visa',
+            icon: {
+              type: 'Font-Awesome',
+              value: 'fa fa-tag'
+            }
+          },
+          {
+            id: 7,
+            code: 'RESI',
+            description: 'Restaurant (Collaborateur AMUNDI)',
+            icon: {
+              type: 'Font-Awesome',
+              value: 'fa fa-tag'
+            }
+          },
+          {
+            id: 8,
+            code: 'RESX',
+            description: 'Restaurant (Collaborateur AMUNDI + Pers. externe)',
+            icon: {
+              type: 'Font-Awesome',
+              value: 'fa fa-tag'
+            }
+          },
+          {
+            id: 9,
+            code: 'KILO',
+            description: 'Frais Kilométriques',
+            icon: {
+              type: 'Font-Awesome',
+              value: 'fa fa-tag'
+            }
+          },
+          {
+            id: 10,
+            code: 'TRPT',
+            description: 'Péage/Parking/Transport en commun',
+            icon: {
+              type: 'Font-Awesome',
+              value: 'fa fa-tag'
+            }
+          },
+          {
+            id: 11,
+            code: 'CADX',
+            description: 'Cadeaux',
+            icon: {
+              type: 'Font-Awesome',
+              value: 'fa fa-tag'
+            }
+          },
+          {
+            id: 12,
+            code: 'INSC',
+            description: 'Inscription Séminaire/Conférence/Colloque',
+            icon: {
+              type: 'Font-Awesome',
+              value: 'fa fa-tag'
+            }
+          },
+          {
+            id: 13,
+            code: 'AUTR',
+            description: 'Autres frais',
+            icon: {
+              type: 'Font-Awesome',
+              value: 'fa fa-tag'
+            }
           }
-        },
-        {
-          id: 2,
-          code: 'CARB',
-          description: 'Carburant (Voiture Société)',
-          icon: {
-            type: 'Font-Awesome',
-            value: 'fa fa-tag'
+        ],
+        outIleDeFrance: [
+          {
+            id: 1,
+            code: 'HOTL',
+            description: 'Hôtel',
+            icon: {
+              type: 'Font-Awesome',
+              value: 'fa fa-tag'
+            }
+          },
+          {
+            id: 2,
+            code: 'CARB',
+            description: 'Carburant (Voiture Société)',
+            icon: {
+              type: 'Font-Awesome',
+              value: 'fa fa-tag'
+            }
+          },
+          {
+            id: 3,
+            code: 'TAXI',
+            description: 'Taxi',
+            icon: {
+              type: 'Font-Awesome',
+              value: 'fa fa-tag'
+            }
+          },
+          {
+            id: 4,
+            code: 'LOCV',
+            description: 'Location voiture',
+            icon: {
+              type: 'Font-Awesome',
+              value: 'fa fa-tag'
+            }
+          },
+          {
+            id: 5,
+            code: 'RESI',
+            description: 'Restaurant (Collaborateur AMUNDI)',
+            icon: {
+              type: 'Font-Awesome',
+              value: 'fa fa-tag'
+            }
+          },
+          {
+            id: 6,
+            code: 'RESX',
+            description: 'Restaurant (Collaborateur AMUNDI + Pers. externe)',
+            icon: {
+              type: 'Font-Awesome',
+              value: 'fa fa-tag'
+            }
+          },
+          {
+            id: 7,
+            code: 'KILO',
+            description: 'Frais Kilométriques',
+            icon: {
+              type: 'Font-Awesome',
+              value: 'fa fa-tag'
+            }
+          },
+          {
+            id: 8,
+            code: 'TRPT',
+            description: 'Péage/Parking/Transport en commun',
+            icon: {
+              type: 'Font-Awesome',
+              value: 'fa fa-tag'
+            }
+          },
+          {
+            id: 9,
+            code: 'CADX',
+            description: 'Cadeaux',
+            icon: {
+              type: 'Font-Awesome',
+              value: 'fa fa-tag'
+            }
+          },
+          {
+            id: 10,
+            code: 'INSC',
+            description: 'Inscription Séminaire/Conférence/Colloque',
+            icon: {
+              type: 'Font-Awesome',
+              value: 'fa fa-tag'
+            }
+          },
+          {
+            id: 11,
+            code: 'AUTR',
+            description: 'Autres frais',
+            icon: {
+              type: 'Font-Awesome',
+              value: 'fa fa-tag'
+            }
+          },
+          {
+            id: 12,
+            code: 'ENTR',
+            description: 'Entretien véhicules sociétés',
+            icon: {
+              type: 'Font-Awesome',
+              value: 'fa fa-tag'
+            }
+          },
+          {
+            id: 13,
+            code: 'COTI',
+            description: 'Cotisation SFAF ou CFA',
+            icon: {
+              type: 'Font-Awesome',
+              value: 'fa fa-tag'
+            }
           }
-        },
-        {
-          id: 3,
-          code: 'TAXI',
-          description: 'Taxi',
-          icon: {
-            type: 'Font-Awesome',
-            value: 'fa fa-tag'
-          }
-        },
-        {
-          id: 4,
-          code: 'LOCV',
-          description: 'Location voiture',
-          icon: {
-            type: 'Font-Awesome',
-            value: 'fa fa-tag'
-          }
-        },
-        {
-          id: 5,
-          code: 'AVIO',
-          description: 'Avion',
-          icon: {
-            type: 'Font-Awesome',
-            value: 'fa fa-tag'
-          }
-        },
-        {
-          id: 6,
-          code: 'VISA',
-          description: 'Frais de Visa',
-          icon: {
-            type: 'Font-Awesome',
-            value: 'fa fa-tag'
-          }
-        },
-        {
-          id: 7,
-          code: 'RESI',
-          description: 'Restaurant (Collaborateur AMUNDI)',
-          icon: {
-            type: 'Font-Awesome',
-            value: 'fa fa-tag'
-          }
-        },
-        {
-          id: 8,
-          code: 'RESX',
-          description: 'Restaurant (Collaborateur AMUNDI + Pers. externe)',
-          icon: {
-            type: 'Font-Awesome',
-            value: 'fa fa-tag'
-          }
-        },
-        {
-          id: 9,
-          code: 'KILO',
-          description: 'Frais Kilométriques',
-          icon: {
-            type: 'Font-Awesome',
-            value: 'fa fa-tag'
-          }
-        },
-        {
-          id: 10,
-          code: 'TRPT',
-          description: 'Péage/Parking/Transport en commun',
-          icon: {
-            type: 'Font-Awesome',
-            value: 'fa fa-tag'
-          }
-        },
-        {
-          id: 11,
-          code: 'CADX',
-          description: 'Cadeaux',
-          icon: {
-            type: 'Font-Awesome',
-            value: 'fa fa-tag'
-          }
-        },
-        {
-          id: 12,
-          code: 'INSC',
-          description: 'Inscription Séminaire/Conférence/Colloque',
-          icon: {
-            type: 'Font-Awesome',
-            value: 'fa fa-tag'
-          }
-        },
-        {
-          id: 13,
-          code: 'AUTR',
-          description: 'Autres frais',
-          icon: {
-            type: 'Font-Awesome',
-            value: 'fa fa-tag'
-          }
-        }
-      ]
+        ]
+      }
+
     });
 
   angular.module(G.app.name)

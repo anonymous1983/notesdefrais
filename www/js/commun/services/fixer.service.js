@@ -35,12 +35,11 @@
           setFixer: function(fixer){
             this.fixer = fixer;
           },
-          getEruoRates: function () {
-            console.log(this.fixer);
+          getEuroRates: function () {
             return this.fixer.rates.EUR;
           },
           getAmountConverted: function (amount) {
-            return amount * ff.getEruoRates();
+            return amount * ff.getEuroRates();
           }
 
 
@@ -50,11 +49,8 @@
           getRatesBase: ff.getRatesBase,
           getFixer: ff.getFixer,
           setFixer: ff.setFixer,
-          getEruoRates: ff.getEruoRates,
-          getAmountConverted: ff.getAmountConverted,
-
-
-
+          getEuroRates: ff.getEuroRates,
+          getAmountConverted: ff.getAmountConverted
         }
 
       }])

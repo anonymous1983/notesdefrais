@@ -52,7 +52,7 @@ var G = {
                 templateUrl: 'js/main/templates/body/expense/add.body.html',
                 resolve: {
                   ExpenseNextId: ['ExpenseProvider', function (ExpenseProvider) {
-                    return ExpenseProvider.getExpenseNextId();
+                    return 12; //ExpenseProvider.getExpenseNextId();
                   }]
                 }
               }

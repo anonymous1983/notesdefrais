@@ -5,13 +5,57 @@
       <h2 class="md-toolbar-tools">
         <span>Add Expense</span>
       </h2>
+
       <h3 class="md-toolbar-tools" layout="row" layout-align="end center">
         <span>#{{expense.obj.expenseId}}</span>
       </h3>
     </md-toolbar>
     <md-content layout-padding>
       <form name="formExpenseAdd">
+        <div layout layout-sm="column">
+          <md-input-container flex>
+            <img id="showExpenseBillPicture" src="" />
 
+            --
+            {{expense.obj.expenseBillPicture | json}}
+            --
+
+            <label>File</label>
+
+            <am-file
+            name="image"
+            class="expense-picture"
+            ng-model="expense.obj.expenseBillPicture"
+            accept="image/gif, image/jpeg, image/png"
+            />
+          </md-input-container>
+
+          <md-input-container flex>
+            <label>Date</label>
+            <input type="date" ng-model="expense.obj.expenseBeginDate">
+          </md-input-container>
+        </div>
+        <div layout layout-sm="column">
+          <md-input-container flex>
+            <md-switch
+            ng-model="expense.obj.expenseReason"
+            aria-label="Dépense en île de France"
+            ng-true-value="1"
+            ng-false-value="0"
+            ng-change="expense.getConstantExpenseReason()"
+            class="md-warn">
+              <label>Dépense en île de France</label>
+          </md-input-container>
+
+          <md-input-container flex>
+            <label>Type</label>
+            <md-select ng-model="bill.obj.expenseType">
+              <md-option ng-repeat="type in expense.obj.constantExpenseType" value="{{type.code}}">{{type.description}}</md-option>
+            </md-select>
+          </md-input-container>
+
+
+        </div>
         <div layout layout-sm="column">
           <md-input-container flex>
             <label>Amount</label>

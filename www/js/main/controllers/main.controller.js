@@ -10,9 +10,11 @@
 
           constantGlobalCurrency: constantGlobal.global.currency,
 
-          constantBillMotif: constantBill.motif,
+          constantBillReason: constantBill.motif,
 
-          constantExpenseType: constantExpense.type,
+          constantExpenseReasonInIleDeFrance: constantExpense.type.inIleDeFrance,
+
+          constantExpenseReasonOutIleDeFrance: constantExpense.type.outIleDeFrance,
 
           uiSerf: function (state) {
             $state.go(state, {}, {reload: true});
@@ -20,7 +22,6 @@
           }
 
         };
-
 
       }]);
 
