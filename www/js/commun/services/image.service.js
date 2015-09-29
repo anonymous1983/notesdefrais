@@ -16,7 +16,7 @@
             method: "GET",
             url: 'http://dev-smartservices-it.intramundi.com/smsit/api/queries/exec/SELECT_BINARY/?format=json',
             headers: {
-              'Authorization': 'Basic ' + window.btoa('abid:Adnen@1981')
+              'Authorization': 'Basic YWJpZDpBZG5lbkAxOTgx'
             }
           };
           $http(parms)

@@ -1,28 +1,32 @@
-<div class="md-body-center">
+<div class="md-body-center view-expense-report-add">
 
   <md-content class="md-form md-whiteframe-z2">
-    <md-toolbar class="md-tall" layout="row" layout-align="start end">
+
+    <md-toolbar layout="row" layout-align="space-between center">
       <h2 class="md-toolbar-tools">
-        <span>Add Bill</span>
+        <span class="">AJOUTER UN NOUVEL ÉVÈNEMENT</span>
       </h2>
+      <div class="expense-report-next-id">Id: #{{expenseReportAdd.obj.expenseReportId}}</div>
     </md-toolbar>
+
     <md-content layout-padding>
-      <form name="formBillAdd">
+
+      <form name="formBillAdd" ng-submit="expenseReportAdd.submit()">
 
         <div layout layout-sm="column">
           <md-input-container flex>
             <md-switch
-            ng-model="bill.obj.expenseReportReason"
+            ng-model="expenseReportAdd.obj.expenseReport_p_in_idf"
             aria-label="Dépense en île de France"
-            ng-true-value="1"
-            ng-false-value="0"
+            ng-true-value="'y'"
+            ng-false-value="'n'"
             class="md-warn">
               <label>Dépense en île de France</label>
           </md-input-container>
 
           <md-input-container flex>
             <label>Type</label>
-            <md-select ng-model="bill.obj.expenseReportType">
+            <md-select ng-model="expenseReportAdd.obj.expenseReport_p_expense_report_type" required>
               <md-option ng-repeat="type in main.constantBillReason" value="{{type.code}}">{{type.description}}</md-option>
             </md-select>
           </md-input-container>
@@ -31,28 +35,25 @@
         <div layout layout-sm="column">
           <md-input-container flex>
             <label>Justification</label>
-            <textarea ng-model="bill.obj.expenseReportJustification" columns="1" md-maxlength="250"></textarea>
+            <textarea ng-model="expenseReportAdd.obj.expenseReport_p_justification" columns="1" md-maxlength="250" required></textarea>
           </md-input-container>
         </div>
 
         <div layout="row" layout-align="center">
-          <div layout="row" layout-align="start center">
-            <md-button
-            type="reset">Cancel
-            </md-button>
-          </div>
+
           <div layout="row" layout-align="end center" flex>
+
             <md-button
-            type="submit"
-            class="md-raised md-button md-default-theme"
-            ng-disabled="formSignIn.$invalid">Save Draft
+            ui-sref="main.expenseReportList"
+            type="reset">Annuler
             </md-button>
 
             <md-button
             type="submit"
             class="md-raised md-primary"
-            ng-disabled="formSignIn.$invalid">Post it
+            ng-disabled="formBillAdd.$invalid">Enregistrer
             </md-button>
+
           </div>
 
         </div>

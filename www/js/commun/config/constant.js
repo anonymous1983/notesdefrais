@@ -470,7 +470,7 @@
 
   angular.module(G.app.name)
     .constant('constantUser', {
-      username: ['test', 'abid', 'forget']
+      username: ['test', 'abid', 'forget', 'asfar_e']
     });
 
 })();

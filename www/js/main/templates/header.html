@@ -1,36 +1,7 @@
-<md-toolbar>
-  <div class="md-toolbar-tools">
-    <md-button class="md-icon-button" aria-label="Settings" ng-hide="true">
-      <md-icon md-svg-icon="bower_components/angular-material/demos/toolbar/demoBasicUsage/img/icons/menu.svg"></md-icon>
-    </md-button>
-    <h2>
-      <a ui-sref="home">Flying Bill</a>
-    </h2>
-    <span flex></span>
-    <md-menu md-position-mode="target-right target" >
-      <md-button aria-label="Open demo menu" class="md-icon-button" ng-click="$mdOpenMenu($event)">
-        <md-icon md-menu-origin md-svg-icon="bower_components/angular-material/demos/toolbar/demoBasicUsage/img/icons/more_vert.svg"></md-icon>
-      </md-button>
-
-      <md-menu-content width="4" >
-
-        <md-menu-item>
-          <md-button> <span md-menu-align-target>List Bill</span> </md-button>
-        </md-menu-item>
-
-        <md-menu-item>
-          <md-button ng-click="main.uiSerf('main.billAdd')"> <span md-menu-align-target>Add Bill</span> </md-button>
-        </md-menu-item>
-
-        <md-menu-item>
-          <md-button> <span md-menu-align-target>List Expense</span> </md-button>
-        </md-menu-item>
-
-        <md-menu-item>
-          <md-button ng-click="main.uiSerf('main.expenseAdd')"> <span md-menu-align-target>Add Expense</span> </md-button>
-        </md-menu-item>
-
-      </md-menu-content>
-    </md-menu>
-  </div>
-</md-toolbar>
+<div class="header-bar">
+  <div class="title"></div>
+  <a class="button fa fa-home" ui-sref="main.home"></a>
+  <a class="button fa fa-bell-o right" href="">
+    <span class="notification">4</span>
+  </a>
+</div>

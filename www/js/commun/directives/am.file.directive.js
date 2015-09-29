@@ -11,6 +11,7 @@
         replace: true,
         require: 'ngModel',
         link: function(scope, element, attr, ctrl) {
+
           var listener = function() {
             scope.$apply(function() {
 
@@ -22,7 +23,14 @@
                 var data = {
                   img: dataImg,
                   base64: dataBase64,
-                  hex: dataBaseHex
+                  hex: dataBaseHex,
+                  file: {
+                    lastModified: element[0].files[0].lastModified,
+                    name: element[0].files[0].name,
+                    size: element[0].files[0].size,
+                    type: element[0].files[0].type,
+                    webkitRelativePath: element[0].files[0].webkitRelativePath
+                  }
                 };
 
                 ctrl.$setViewValue(data);
@@ -30,7 +38,7 @@
               };
               FR.readAsDataURL(element[0].files[0]);
 
-              attr.multiple ? ctrl.$setViewValue(element[0].files) : ctrl.$setViewValue(element[0].files[0]);
+              //attr.multiple ? ctrl.$setViewValue(element[0].files) : ctrl.$setViewValue(element[0].files[0]);
             });
           }
           element.bind('change', listener);

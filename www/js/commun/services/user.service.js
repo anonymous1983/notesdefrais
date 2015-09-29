@@ -16,11 +16,11 @@
             method: "POST",
             url: 'URL:http://dev-smartservices-it.intramundi.com/smsit/api/auth/login/',
             headers: {
-              'Authorization': 'Basic ' + window.btoa('abid:Adnen@1981')
+              'Authorization': 'Basic YWJpZDpBZG5lbkAxOTgx'
             },
             data: {
               login: 'abid',
-              password: 'Adnen@1981'
+              password: 'xxxxx'
             }
           };
           $http(parms)

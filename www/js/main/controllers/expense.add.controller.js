@@ -3,48 +3,56 @@
 (function () {
 
   angular.module(G.app.name)
-    .controller('ExpenseAddController', ['$scope', '$timeout', '$filter', 'FixerProvider', 'ExpenseNextId', 'CryptoProvider',
-      function ($scope, $timeout, $filter, FixerProvider, ExpenseNextId, CryptoProvider) {
+    .controller('ExpenseAddController', ['$scope', '$timeout', '$filter', '$state', '$stateParams', '$sessionStorage', 'ExpenseProvider', 'FixerProvider', 'ExpenseReportList', 'CryptoProvider', 'UtilsProvider',
+      function ($scope, $timeout, $filter, $state, $stateParams, $sessionStorage, ExpenseProvider, FixerProvider, ExpenseReportList, CryptoProvider, UtilsProvider) {
+
+        $scope.expenseReport = {
+          expenseReportList: ExpenseReportList
+        };
+
+        $scope.constantExpenseType = $scope.main.constantExpenseReasonInIleDeFrance;
 
         $scope.expense = {
+
           obj: {
-            expenseBeginDate: new Date(),
-            expenseEndDate: new Date(),
-            expenseAmountConverted: 0,
-            expenseReason: 1,
-            constantExpenseType: $scope.main.constantExpenseReasonInIleDeFrance,
-            expenseId: ExpenseNextId.expenseId,
-            expenseBillPictureBase64: '',
-            expenseBillPictureBaseHex: ''
+            expense_p_report_id: window.atob($stateParams.expenseReportId),
+            expense_p_expense_id: 0,
+            expense_p_expense_type: '',
+            expense_p_exchange_rate: "1",
+            expense_p_justification: '',
+            expense_p_begin_date: new Date(),
+            expense_p_currency: '',
+            expense_p_end_date: new Date(),
+            expense_p_img_justif: $sessionStorage.paramsPicture,
+            expense_p_draft: "y",
+            expense_p_amount: 0
           },
 
-          getConstantExpenseReason: function () {
-            return $scope.expense.obj.constantExpenseType = $scope.expense.obj.expenseReason ? $scope.main.constantExpenseReasonInIleDeFrance : $scope.main.constantExpenseReasonOutIleDeFrance;
+          submit: function () {
+            ExpenseProvider.addExpense($scope.expense.obj).then(function () {
+              $state.go('main.home', {}, {reload: true});
+            });
           },
+
           getRatesBase: function () {
-            if ($scope.expense.obj.expenseCurrency) {
-              FixerProvider.getRatesBase($scope.expense.obj.expenseCurrency).then(function (data) {
+            if ($scope.expense.obj.expense_p_currency) {
+              FixerProvider.getRatesBase($scope.expense.obj.expense_p_currency).then(function (data) {
                 FixerProvider.setFixer(data);
                 $scope.expense.obj.expenseChangeRate = FixerProvider.getEuroRates();
-                $scope.expense.obj.expenseAmountConverted = FixerProvider.getAmountConverted($scope.expense.obj.expenseAmount);
+                $scope.expense.obj.expense_p_amountConverted = FixerProvider.getAmountConverted($scope.expense.obj.expense_p_amount);
               });
             }
           },
+
           getImage: function (e) {
             console.log(e);
           }
 
-
         };
-
-        $scope.uploadImage = function() {
-          alert("select file");
-        }
 
         $scope.getImage = function (e) {
           console.log(e);
         }
-
 
       }]);
 

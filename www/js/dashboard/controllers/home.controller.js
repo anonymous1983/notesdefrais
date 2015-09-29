@@ -3,7 +3,7 @@
 (function () {
 
   angular.module(G.app.name)
-    .controller('HomeController', ['$scope', '$state', '$sessionStorage', 'constantUser', 'ExpenseProvider', 'ImageProvider', 'UserProvider',
+    .controller('DashboardController', ['$scope', '$state', '$sessionStorage', 'constantUser', 'ExpenseProvider', 'ImageProvider', 'UserProvider',
       function ($scope, $state, $sessionStorage, constantUser, ExpenseProvider, ImageProvider, UserProvider) {
 
 
